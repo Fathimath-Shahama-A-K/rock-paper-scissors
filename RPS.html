@@ -15,7 +15,8 @@
         h3{
             text-align: center;
             font-weight: bold;
-            font-size:100px;
+            font-size:80px;
+            
            
         }
         .rock,.paper,.scissors{
@@ -59,7 +60,7 @@
         }
         .restore{
             position: absolute;
-            left:1300px ;
+            left:1190px ;
             bottom: -60px;
             font-size: xx-large;
             border-radius: 35px;
@@ -72,11 +73,26 @@
         }
         .js-score{
             position: absolute;
-            bottom: 10px;
-            left: 1250px;
+            bottom: -25px;
+            left: 1130px;
             color: yellow;
-            font-size: 25px;
+            font-size: 35px;
 
+        }
+        .autoPlay{
+            position: absolute;
+            right:1200px ;
+            bottom: -65px;
+            font-size: xx-large;
+            border-radius: 35px;
+            background-color: rgb(204, 176, 33);
+            color: white;
+            padding: 5px 10px 5px 10px;
+            margin-top: 6px;
+        }
+        .js-score,.restore{
+            border: 1px solid white;
+            margin-left: 10px;
         }
         
         
@@ -114,6 +130,9 @@
     localStorage.removeItem('score');
     updateScoreElement();
     " class="restore">Reset Score</button>
+    <button class="autoPlay" onclick="autoPlay();
+
+    ">Auto Play</button>
 
     <script>
         let score=JSON.parse(localStorage.getItem('score'))|| {
@@ -129,6 +148,25 @@
         //         Ties:0
         //     };
         // }
+        let isAutoPlaying=false;
+        let intervalId;
+        function autoPlay(){
+            if (!isAutoPlaying){
+               intervalId= setInterval(function(){
+                const playerMove= pickCmpMove();
+                playGame(playerMove);
+
+                },1000);
+                isAutoPlaying=true;
+
+            }else {
+                clearInterval(intervalId);
+                isAutoPlaying=false;
+
+            }
+
+            
+        }
 
         
          
