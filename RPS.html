@@ -12,6 +12,14 @@
             
 
         }
+        .ins{
+            border: 0.01px doted white;
+            background-color: black;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            
+        }
         h3{
             text-align: center;
             font-weight: bold;
@@ -100,22 +108,27 @@
     </style>
 </head>
 <body>
+    <button onclick="ins()"
+    class="ins">🎮 How to Play </button>
+    <div class="insInfo"></div>
+
+
+
+
+
+
+
+
     <h3> Rock Paper Scissors</h3>
-    <button onclick="
-    playGame('✊');
-    " class="rock">✊</button>
+    <button class="rock keyRock" >✊</button>
 
 
-    <button onclick="
-    playGame('🖐️');
-    " class="paper">✋</button>
+    <button class="paper keyPaper">✋</button>
 
 
 
 
-    <button onclick="
-       playGame('✌️');
-    " class="scissors">✌️</button>
+    <button  class="scissors keyScissor">✌️</button>
 
 
     <p class="js-result"></p>
@@ -130,11 +143,30 @@
     localStorage.removeItem('score');
     updateScoreElement();
     " class="restore">Reset Score</button>
-    <button class="autoPlay" onclick="autoPlay();
-
-    ">Auto Play</button>
+    
+    <button class="autoPlay keyAutoplay">Auto Play</button>
 
     <script>
+      function ins(){
+       const info= document.querySelector('.insInfo');
+       
+       if(info.innerHTML === ''){
+       info.innerHTML=`
+       
+            🪨 Press R → Choose Rock <br>
+            📄 Press P → Choose Paper <br>
+            ✂️ Press S → Choose Scissors <br>
+            🤖 Press A → Start Auto Play <br>
+
+            Or, you can simply click the Rock, Paper, or Scissors buttons on the screen to make your choice.`;
+      }else {
+        info.innerHTML='';
+      }
+
+    }
+
+
+
         let score=JSON.parse(localStorage.getItem('score'))|| {
                 wins:0,
                 losses:0,
@@ -167,6 +199,38 @@
 
             
         }
+        document.querySelector('.keyRock')
+        .addEventListener('click',() => {
+            playGame('✊');
+
+        });
+        document.querySelector('.keyPaper')
+        .addEventListener('click', () => {
+            playGame('🖐️');
+        });
+        document.querySelector('.keyScissor')
+            .addEventListener('click',() => {
+                playGame('✌️');
+            
+        });
+        document.querySelector('.keyAutoplay')
+        .addEventListener('click', () => {
+            autoPlay('isAutoPlaying');
+        });
+
+
+
+        document.body.addEventListener('keydown', (event) => {
+            if(event.key === 'r'){
+                playGame('✊');
+            }else if(event.key === 'p'){
+                playGame('🖐️');
+            }else if(event.key === 's'){
+                playGame('✌️');
+            }else if(event.key === 'a'){
+                autoPlay('isAutoPlaying');
+            }
+        });
 
         
          
