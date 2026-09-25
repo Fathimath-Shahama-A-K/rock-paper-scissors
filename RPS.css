@@ -1,0 +1,98 @@
+body{
+            background-color:black;
+            color: white;
+            position: relative;
+            
+
+        }
+        .ins{
+            border: 0.01px doted white;
+            background-color: black;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            
+        }
+        h3{
+            text-align: center;
+            font-weight: bold;
+            font-size:80px;
+            
+           
+        }
+        .rock,.paper,.scissors{
+           font-size:150px;
+           border: 2px solid white;
+           border-radius: 50%;
+           background-color: black;
+           margin-right: 50px;
+           position:relative;
+           left: 400px;
+           cursor: pointer;
+
+
+        }
+        .rock:hover{
+            background-color: white;
+        }
+        .paper:hover{
+            background-color: white;
+        }
+        .scissors:hover{
+            background-color: white;
+        }
+        .js-result{
+            font-size:50px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           
+          
+           
+          
+
+        }
+        .js-moves{
+           font-size:35px;
+           display: flex;
+           align-items: center;
+           
+          
+        }
+        .restore{
+            position: absolute;
+            left:1190px ;
+            bottom: -60px;
+            font-size: xx-large;
+            border-radius: 35px;
+            background-color: rgb(204, 176, 33);
+            color: white;
+            padding: 5px 10px 5px 10px;
+        }
+        .restore:hover{
+            background-color: black;
+        }
+        .js-score{
+            position: absolute;
+            bottom: -25px;
+            left: 1130px;
+            color: yellow;
+            font-size: 35px;
+
+        }
+        .autoPlay{
+            position: absolute;
+            right:1200px ;
+            bottom: -65px;
+            font-size: xx-large;
+            border-radius: 35px;
+            background-color: rgb(204, 176, 33);
+            color: white;
+            padding: 5px 10px 5px 10px;
+            margin-top: 6px;
+        }
+        .js-score,.restore{
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+        
